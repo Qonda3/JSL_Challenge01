@@ -23,39 +23,33 @@ const STATUS_MAP = {
         canCheckout: false,
         canCheckIn: true,
     }
-}
+};
 
 // Edit below line 
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+const statusSet = document.querySelectorAll('.status');
+const reserveSet =  document.querySelectorAll('.reserve');
+const checkoutSet =  document.querySelectorAll('.checkout');
+const checkinSet =  document.querySelectorAll('.checkin');
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+checkinSet[0].style.setProperty('color', 'black', 'important');
+checkinSet[1].style.setProperty('color', 'black', 'important');
+checkinSet[2].style.setProperty('color', 'black', 'important');
 
-checkin.0.color = none
-status.0.style.color = STATUS_MAP.status.color
-reserve.0 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.0 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.0 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
 
-checkin.1.color = none
-status.1.style.color = STATUS_MAP.status.color
-reserve.1 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+statusSet[0].style.color = STATUS_MAP[statusSet[0].innerText].color;
+statusSet[1].style.color = STATUS_MAP[statusSet[1].innerText].color;
+statusSet[2].style.color = STATUS_MAP[statusSet[2].innerText].color;
 
-checkin.2.color = none
-status.2.style.color = STATUS_MAP.status.color
-reserve.2 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+reserveSet[0].disabled = !STATUS_MAP[statusSet[0].innerText.trim().toLowerCase()].canReserve;
+checkoutSet[0].disabled = !STATUS_MAP[statusSet[0].innerText.trim().toLowerCase()].canCheckout;
+checkinSet[0].disabled = !STATUS_MAP[statusSet[0].innerText.trim().toLowerCase()].canCheckIn;
+
+reserveSet[1].disabled = !STATUS_MAP[statusSet[1].innerText.trim().toLowerCase()].canReserve;
+checkoutSet[1].disabled = !STATUS_MAP[statusSet[1].innerText.trim().toLowerCase()].canCheckout;
+checkinSet[1].disabled = !STATUS_MAP[statusSet[1].innerText.trim().toLowerCase()].canCheckIn;
+
+reserveSet[2].disabled = !STATUS_MAP[statusSet[2].innerText.trim().toLowerCase()].canReserve;
+checkoutSet[2].disabled = !STATUS_MAP[statusSet[2].innerText.trim().toLowerCase()].canCheckout;
+checkinSet[2].disabled = !STATUS_MAP[statusSet[2].innerText.trim().toLowerCase()].canCheckIn;
